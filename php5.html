@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<title>Modulo di recensione</title>
+    </head>
+    <body style="background-color:#ffffcc">
+        <h1 style="text-align: center;">Recensione di pubblicazione</h1>
+        <p>
+            Questa pagina può; essere utilizzata dai recensori autorizzati per inviare all'editore le recensioni dei testi a loro
+            sottoposti.
+            <br>
+            Si prega di compilare in ogni sua parte il modulo seguente
+        </p>
+
+        <form action="PHP5.php" method="post" target="_blank">
+            <fieldset title="Inserisci i tuoi dati identificativi">
+                <legend><b>Sezione 1: Dati del Recensore</b></legend>
+                <label>Nome e Cognome <input name="nome" type="text" size="25" value="Mario Rossi" autofocus></label>
+                <label>Password di identificazione <input name="pass" type= "password" maxlength="10" placeholder="massimo 10 caratteri"></label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Sezione 2: Dati della Pubblicazione Recensita</b></legend>
+                <label>Titolo <input name="titolo" type="text" size="25"></label>   
+                <label>Autore <input name="autore" type="text" size="25"></label>               
+                <br>
+                <br>
+                <!-- Per usare correttamente il prossimo elemento bisogna -->
+                <!-- impostare ENCTYPE="multipart/form-data" nella definizione di FORM -->
+                <label>File contenente il testo <input name="testo" type="file" size="40"></label>              
+                Ricevuta attraverso:
+                <label>Posta Ordinaria <input type="checkbox" name="mezzo[]" value="posta" checked></label>   
+                <label>e-mail <input type="checkbox" name= "mezzo[]" value="email"></label>           
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Sezione 3: Giudizio del Recensore</b></legend>
+                <label>Illeggibile <input type="radio" name="giudizio" value="ilg"></label> 
+                <label>Leggibile a Fatica <input type="radio" name="giudizio" value="lgf"></label>
+                <label>Leggibile <input type="radio" name="giudizio" value="lgg" checked></label>
+                <label>Piacevole <input type="radio" name="giudizio" value="pcv"></label>
+                <label>Capolavoro <input type="radio" name="giudizio" value="cpv"></label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Sezione 4: Commento del Recensore</b></legend>
+                <textarea name="Commento" rows="5" cols="40">Inserisci un commento esteso alla pubblicazione</textarea>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Sezione 5: Indicazioni per l'Editore</b></legend>
+                <label for="pb">Il testo merita la pubblicazione?</label>
+                <select id="pb" name="pub" size="1">
+                    <option value="no">No</option>
+                    <option value="fno">Forse no</option>
+                    <option value="fsi" selected> Forse si</option>
+                    <option value="si">Si</option>
+                </select>
+                <label for="dv">Se si, dove?</label>
+                <select id="dv" name="pub_dove[]" size="2" multiple>
+                    <option value="ri">Rivista</option>
+                    <option value="li">Libro</option>
+                    <option value="mo">Collana Monografica</option>
+                    <option value="ec">Edizioni Economiche</option>
+                </select>
+            </fieldset>
+            <br>
+            <input type="submit" value="Invia">
+            <input type="reset" value="Azzera">
+        </form>
+    </body>
+</html>
